@@ -1,9 +1,6 @@
 {
   "santos": [
     {
-      "id": 1
-    },
-    {
       "id": 2,
       "nombre": "Shiryu",
       "constelacion": "Dragón"
@@ -44,6 +41,7 @@
       "id": 10
     },
     {
+      "{\"nombre\":\"Lorena\"}": "",
       "id": 11
     }
   ],
