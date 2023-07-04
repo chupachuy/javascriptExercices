@@ -114,18 +114,60 @@
                         }
                     }else{
                         // Update - PUT
+                        try {
+
+                            let options = {
+                                method: "PUT",
+                                Headers: {
+                                    "Content-type": "application/json: charset=utf-8"
+                                },
+                                data: JSON.stringify({
+                                    nombre: e.target.nombre.value,
+                                    constelacion: e.targe.constelacion.value
+                                })
+                            },
+
+                            res = await axios(`http://localhost:3000/santos/${e.target.id.value}`, options),
+                            json =  await res.data;
+                            
+                            location.reload();
+                            
+                        } catch (err) {
+                            let message = err.statusText || "OCurrio un error";
+                            $form.insertAdjacentElement("afterend", `<p><strong>${err.status}: ${message}</strong></p>`)
+                        }
 
                     }
                 }
             })
 
         d.addEventListener("click", async e => {
-            if(e.target.marches(".edit")){
-
+            if(e.target.matches(".edit")){
+                $title.textContent = "Editar Santo";
+                $form.nombre.value = e.target.dataset.name;
+                $form.constelacion.value = e.target.dataset.constellation;
+                $form.id.value = e.target.dataset.id;
             }
 
             if(e.target.matches(".delete")){
-                
+                // delete - DELETE
+                let isDelete = confirm(`Estas  seguro de eliminar el id${e.target.dataset.id}?`);
+
+                if(isDelete){
+                    let options = {
+                        method: "DELETE",
+                        Headers: {
+                            "Content-type": "application/json; charset=utf-8"
+                        }
+                    },
+                    res = await axios(`http://localhost:3000/santos/${e.target.dataset.id}`, options);
+
+                    json = await res.data;
+
+                }else{
+                    let message = err.statusText || "OCurrio un error";
+                    $form.insertAdjacentElement("afterend", `<p><strong>${err.status}: ${message}</strong></p>`)
+                }
             }
         })
 

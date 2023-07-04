@@ -26,23 +26,8 @@
       "constelacion": "Geminis"
     },
     {
-      "nombre": "Mu",
-      "constelacion": "Mu",
-      "id": 7
-    },
-    {
-      "nombre": "Aldebaran",
-      "constelacion": "Aldebaran",
-      "id": 8
-    },
-    {
-      "nombre": "Máscara de muerte",
-      "constelacion": "Cancer",
-      "id": 10
-    },
-    {
       "{\"nombre\":\"Lorena\"}": "",
-      "id": 11
+      "id": 7
     }
   ],
   "Dioses": [
